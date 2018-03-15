@@ -12,14 +12,6 @@ import (
 	"github.com/mackerelio/checkers"
 )
 
-type Result struct {
-	Name    string
-	Age     int64
-	ModTime time.Time
-	Status  checkers.Status
-	Message string
-}
-
 var opts struct {
 	Base        string `short:"b" long:"base" required:"true" description:"the base directory(required)"`
 	WarningAge  int64  `short:"w" long:"warning-age" default:"21600" description:"warning if more old than(sec)"`
@@ -62,7 +54,6 @@ func run(args []string) *checkers.Checker {
 		}
 	}
 
-	results := []Result{}
 	for _, f := range flist {
 		stat, err := os.Stat(f)
 		if err != nil {
@@ -86,23 +77,12 @@ func run(args []string) *checkers.Checker {
 			mtime.Year(), mtime.Month(), mtime.Day(),
 			mtime.Hour(), mtime.Minute(), mtime.Second())
 
-		res := Result{
-			Name:    stat.Name(),
-			Age:     age,
-			ModTime: mtime,
-			Status:  result,
-			Message: msg,
-		}
-		results = append(results, res)
-
 		if opts.Debug {
-			log.Printf("%v\n", res)
+			log.Printf("name=%s, age=%d, modified=%v, result=%v, msg=%s\n", stat.Name(), age, mtime, result, msg)
 		}
-	}
 
-	for _, r := range results {
-		if r.Status != checkers.OK {
-			return checkers.NewChecker(r.Status, r.Message)
+		if result != checkers.OK {
+			return checkers.NewChecker(result, msg)
 		}
 	}
 
@@ -132,4 +112,3 @@ func path(dir string) ([]string, error) {
 
 	return paths, nil
 }
-
