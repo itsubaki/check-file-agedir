@@ -17,10 +17,14 @@ Help Options:
   -h, --help          Show this help message
 ```
 
-# Example
+# Install
+
+```
+sudo mkr plugin install itsubaki/check-fileagedir@v0.1
+```
 
 ```
 # /etc/mackerel-agent/mackerel-agent.conf
 [plugin.checks.fage_td-agent_buffer]
-command = "check-fileagedir -b /var/log/td-agent/buffer/"
+command = "/opt/mackerel-agent/plugins/bin/check-fileagedir -b /var/log/td-agent/buffer/"
 ```
