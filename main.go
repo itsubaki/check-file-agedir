@@ -21,7 +21,7 @@ var opts struct {
 
 func main() {
 	ckr := run(os.Args[1:])
-	ckr.Name = "FileAge"
+	ckr.Name = "FileAgeDir"
 	ckr.Exit()
 }
 

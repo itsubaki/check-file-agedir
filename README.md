@@ -1,11 +1,11 @@
-# check-fileagedir
+# check-file-agedir
 
 # Help
 
 ```
-$ check-fileagedir -h
+$ check-file-agedir -h
 Usage:
-  check-fileagedir [OPTIONS]
+  check-file-agedir [OPTIONS]
 
 Application Options:
   -b, --base=         the base directory(required)
@@ -20,11 +20,11 @@ Help Options:
 # Install
 
 ```
-sudo mkr plugin install itsubaki/check-fileagedir@v0.1
+sudo mkr plugin install itsubaki/check-file-agedir@v0.1
 ```
 
 ```
 # /etc/mackerel-agent/mackerel-agent.conf
 [plugin.checks.fage_td-agent_buffer]
-command = "/opt/mackerel-agent/plugins/bin/check-fileagedir -b /var/log/td-agent/buffer/"
+command = "/opt/mackerel-agent/plugins/bin/check-file-agedir -b /var/log/td-agent/buffer/"
 ```
