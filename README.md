@@ -20,7 +20,7 @@ Help Options:
 # Install
 
 ```
-sudo mkr plugin install itsubaki/check-file-agedir@v0.1
+sudo mkr plugin install itsubaki/check-file-agedir@v0.2
 ```
 
 ```
