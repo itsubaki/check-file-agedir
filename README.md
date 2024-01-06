@@ -1,6 +1,6 @@
 # check-file-agedir
 
-# Help
+## Help
 
 ```
 $ check-file-agedir -h
@@ -17,7 +17,7 @@ Help Options:
   -h, --help          Show this help message
 ```
 
-# Install
+## Install
 
 ```
 sudo mkr plugin install itsubaki/check-file-agedir@v0.2
